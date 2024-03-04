@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:16:03 by lopezz            #+#    #+#             */
-/*   Updated: 2024/02/13 13:04:29 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/02/13 19:24:53 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main(void)
 {
-	std::string	input;
 	Phonebook	phonebook;
+	std::string	input;
 	int			i = 0;
 	
 	phonebook.initialize();
