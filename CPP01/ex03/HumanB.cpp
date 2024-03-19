@@ -6,24 +6,32 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 18:48:09 by lopezz            #+#    #+#             */
-/*   Updated: 2024/02/14 19:07:38 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/03/11 17:43:21 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(void)
+HumanB::HumanB(std::string name): name(name), weapon(NULL)
 {
-	return;
+	return ;
 }
 
 HumanB::~HumanB(void)
 {
-	return;
+	return ;
+}
+
+void	HumanB::setWeapon(Weapon &weapon)
+{
+	this->weapon = &weapon;
 }
 
 void	HumanB::attack()
 {
-	std::string	weaponType = weapon.getType();
-	std::cout << name << "> attacks with their " << weaponType << std::endl;
+	if (this->weapon)
+	{
+		std::string	weaponType = this->weapon->getType();
+		std::cout << name << " attacks with their " << weaponType << std::endl;
+	}
 }

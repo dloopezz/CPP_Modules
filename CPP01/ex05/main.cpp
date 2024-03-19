@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 18:44:17 by lopezz            #+#    #+#             */
-/*   Updated: 2024/03/11 17:43:48 by lopezz           ###   ########.fr       */
+/*   Created: 2024/03/14 16:10:01 by lopezz            #+#    #+#             */
+/*   Updated: 2024/03/18 17:32:16 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_A_HPP
-# define HUMAN_A_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-#include "Weapon.hpp"
-
-class HumanA
+int main()
 {
-	private:
-		std::string name;
-		Weapon		&weapon;
-	public:
-		HumanA(std::string name, Weapon	&weapon);
-		~HumanA(void);
-		void	attack();
-};
+	Harl harl;
 
-#endif
+	harl.complain("DEBUG");
+	std::cout << std::endl;
+	harl.complain("INFO");
+	std::cout << std::endl;
+	harl.complain("WARNING");
+	std::cout << std::endl;
+	harl.complain("ERROR");
+	std::cout << std::endl;
+	harl.complain("aaaaaa");
+	std::cout << std::endl;
+}
