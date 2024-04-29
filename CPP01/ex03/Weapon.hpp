@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 18:33:29 by lopezz            #+#    #+#             */
-/*   Updated: 2024/02/15 14:26:05 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/04/29 19:23:54 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Weapon
 		Weapon();
 		Weapon(std::string);
 		~Weapon();
-		void		setType(std::string type);
-		std::string	getType();
+		void				setType(std::string type);
+		const std::string&	getType();
 };
 
 #endif

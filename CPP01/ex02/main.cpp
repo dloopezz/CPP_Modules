@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:52:15 by lopezz            #+#    #+#             */
-/*   Updated: 2024/03/06 16:37:54 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/04/29 17:31:21 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int main()
 	std::cout << "Value of of str: " << str << std::endl;
 	std::cout << "Value of of strPTR: " << *strPTR << std::endl;
 	std::cout << "Value of of strREF: " << strREF << std::endl;
+
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:58:45 by lopezz            #+#    #+#             */
-/*   Updated: 2024/02/13 14:47:14 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/04/29 16:17:31 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	Phonebook::print_data(std::string str)
 	if (str.size() <= 10)
 		std::cout << std::setw(10) << str << "|";
 	else
-		std::cout <<  str.substr(0, 9) << ".|";
+		std::cout << str.substr(0, 9) << ".|";
 }
 
 void	Phonebook::search_contact()
