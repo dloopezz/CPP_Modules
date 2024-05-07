@@ -7,6 +7,7 @@ RM = rm -rf
 SRC =	main.cpp\
 		Phonebook.cpp\
 		Contact.cpp\
+		utils.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 

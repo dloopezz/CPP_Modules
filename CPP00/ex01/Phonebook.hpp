@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dlopez-s <dlopez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:50:15 by lopezz            #+#    #+#             */
-/*   Updated: 2024/02/12 20:24:14 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/05/07 16:13:15 by dlopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
+#include <sstream>
 #include "Contact.hpp"
 
 class Phonebook
@@ -30,5 +31,8 @@ class Phonebook
 		void	read_contact(int index);
 		void	print_data(std::string str);
 };
+
+bool	all_of(const std::string& s, int (*func)(int));
+int		stoi(const std::string& s);
 
 # endif

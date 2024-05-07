@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dlopez-s <dlopez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 00:58:45 by lopezz            #+#    #+#             */
-/*   Updated: 2024/04/29 16:17:31 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/05/07 15:06:34 by dlopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,9 @@ void	Phonebook::search_contact()
 	if (std::cin.eof())
 		exit (1);
 
-	if (std::all_of(option.begin(), option.end(), ::isdigit)) 
+	if (all_of(option, ::isdigit)) 
 	{
-    	int index = std::stoi(option);
+    	int index = stoi(option);
 		std::cout << std::endl << "\033[0;93mContact " << index << " selected!\033[1;0m" << std::endl;
 		if (index < 1 || index > n_contacts)
 	    	std::cout << "\033[31mContact doesn't exist.\033[1;0m" << std::endl << std::endl;
