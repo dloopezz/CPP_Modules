@@ -135,6 +135,33 @@ bool Fixed::operator!=(const Fixed &fixed)
 
 // Increment and Decrement
 
+Fixed	Fixed::operator++(void)
+{
+	this->fixedPointNumber++;
+	return *this;
+}
+
+Fixed	Fixed::operator--(void)
+{
+	fixedPointNumber--;
+	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed temp = *this;
+
+	this->fixedPointNumber++;
+	return temp;
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed temp = *this;
+
+	fixedPointNumber--;
+	return temp;
+}
 
 
 // Max and Min

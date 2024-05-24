@@ -41,11 +41,11 @@ class Fixed
 		bool	operator<=(const Fixed& fixed);
 		bool	operator==(const Fixed& fixed);
 		bool	operator!=(const Fixed& fixed);		
-		// // Increment and Decrement
-		// Fixed	operator++(void);
-		// Fixed	operator++(int num);
-		// Fixed	operator--(void);
-		// Fixed	operator--(int num);		
+		// Increment and Decrement
+		Fixed	operator++(void);
+		Fixed	operator++(int num);
+		Fixed	operator--(void);
+		Fixed	operator--(int num);		
 		// Max and Min
 		static Fixed		&min(Fixed &a, Fixed &b);
 		static const Fixed	&min(const Fixed &a, const Fixed &b);
