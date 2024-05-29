@@ -2,9 +2,9 @@
 
 bool all_of(const std::string& s, int (*func)(int))
 {
-    for (std::string::const_iterator it = s.begin(); it != s.end(); ++it)
+    for (std::string::const_iterator i = s.begin(); i != s.end(); ++i)
 	{
-        if (!func(*it))
+        if (!func(*i))
             return false;
     }
     return true;
