@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dlopez-s <dlopez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 09:53:19 by lopezz            #+#    #+#             */
-/*   Updated: 2024/06/27 18:21:35 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/07/26 11:52:23 by dlopez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	std::cout << "*HJKSKJLLKSALKJKASKLASKLKJLJICO*" << std::endl;
 	std::cout << "*KLASKLKJLJICHJKSKJLLKSALKJKASPOKNJHA*" << std::endl;
 
-    std::srand(std::time(0)); // Usa el tiempo actual como semilla para el generador de números aleatorios
+    std::srand(time(0)); // Usa el tiempo actual como semilla para el generador de números aleatorios
     if(std::rand() % 2 == 1)
         std::cout << this->getTarget() << " has been robotomized succesfully!" << std::endl;
 	else
