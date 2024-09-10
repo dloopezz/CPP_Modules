@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 18:43:51 by lopezz            #+#    #+#             */
-/*   Updated: 2024/09/10 21:53:28 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/09/11 00:10:09 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 PMergeMe::PMergeMe(std::vector<int> input) : myVec(input), myDeq(input.begin(), input.end())
 {
-	// std::cout << "Before :" << std::endl; //esto mejor en main y dejar constructor vacío
-	// for (size_t i = 0; i < input.size(); i++)
-	// 	std::cout << input[i] << " ";
-	// std::cout << std::endl;
-
 	return ;
 }
 
@@ -39,6 +34,8 @@ PMergeMe &PMergeMe::operator=(const PMergeMe &other)
 
 PMergeMe::~PMergeMe() { return; } ;
 
+
+//VECTOR
 std::vector<int> &PMergeMe::getVec()
 {
 	return myVec;
@@ -85,7 +82,7 @@ std::vector<std::pair< int, int> > createPairsVec(std::vector<int> &myVec)
 	
 	while (i < myVec.size() && j < pairsCount)
 	{
-		auxVec.push_back(std::make_pair(myVec[i], myVec[i+1]));
+		auxVec.push_back(std::make_pair(myVec[i], myVec[i + 1]));
 		i += 2;
 		j++;
 	}
@@ -93,7 +90,7 @@ std::vector<std::pair< int, int> > createPairsVec(std::vector<int> &myVec)
 	return (auxVec);
 }
 
-void PMergeMe::vecAlgorithm()
+std::vector<int> PMergeMe::vecAlgorithm()
 {
 	std::vector<std::pair< int, int> > pairsVec = createPairsVec(myVec);
 	
@@ -108,13 +105,87 @@ void PMergeMe::vecAlgorithm()
 		largerVec.insert(smallerPos, smallerVec[i]);
 	}
 
-	std::swap(myVec, largerVec);
+	return largerVec;
 }
 
-//TODO
-//1. quitar swap, no me gusta, cambiarlo por un return o algo así
-//2. checkear necesidad if l.86
-//3. print sorted
-//4. hacer todo para deque
-//5. buen main y error handling (before print, timestamps)
-//6. operator= bien??
+//DEQUE
+std::deque<int> &PMergeMe::getDeq()
+{
+	return myDeq;
+}
+
+std::deque<int> createLargerDeq(std::deque<std::pair< int, int> > &pairsDeq, std::deque<int> &myDeq)
+{
+	std::deque<int> auxDeq;
+	
+	for (size_t i = 0; i < pairsDeq.size(); i++)
+	{
+		if (pairsDeq[i].first > pairsDeq[i].second)
+			auxDeq.push_back(pairsDeq[i].first);
+		else
+			auxDeq.push_back(pairsDeq[i].second);
+	}
+	
+	if (myDeq.size() % 2 != 0)
+		auxDeq.push_back(myDeq[myDeq.size() - 1]);
+
+	return auxDeq;
+}
+
+std::deque<int> createSmallerDeq(std::deque<std::pair< int, int> > &pairsDeq)
+{
+	std::deque<int> auxDeq;
+	
+	for (size_t i = 0; i < pairsDeq.size(); i++)
+	{
+		if (pairsDeq[i].first > pairsDeq[i].second)
+			auxDeq.push_back(pairsDeq[i].second);
+		else
+			auxDeq.push_back(pairsDeq[i].first);
+	}
+
+	return auxDeq;
+}
+
+std::deque<std::pair< int, int> > createPairsDeq(std::deque<int> &myDeq)
+{
+	std::deque<std::pair< int, int> > auxDeq;
+	size_t pairsCount = myDeq.size() / 2;
+	size_t i = 0, j= 0;
+	
+	while (i < myDeq.size() && j < pairsCount)
+	{
+		auxDeq.push_back(std::make_pair(myDeq[i], myDeq[i + 1]));
+		i += 2;
+		j++;
+	}
+	
+	return (auxDeq);
+}
+
+void PMergeMe::deqAlgorithm()
+{
+	std::deque<std::pair< int, int> > pairsDeq = createPairsDeq(myDeq);
+	
+	std::deque<int> largerDeq = createLargerDeq(pairsDeq, myDeq);
+	std::deque<int> smallerDeq = createSmallerDeq(pairsDeq);
+
+	std::sort(largerDeq.begin(), largerDeq.end());
+	
+	for (size_t i = 0; i < smallerDeq.size(); i++)
+	{
+		std::deque<int>::iterator smallerPos = std::lower_bound(largerDeq.begin(), largerDeq.end(), smallerDeq[i]);
+		largerDeq.insert(smallerPos, smallerDeq[i]);
+	}
+
+	std::swap(myDeq, largerDeq);
+	// printDeq(myDeq);
+}
+
+void PMergeMe::printDeq(std::deque<int> deq)
+{
+	std::cout << "After: ";
+	for (size_t i = 0; i < deq.size(); i++)
+		std::cout << deq[i] << " ";
+	std::cout << std::endl;
+}

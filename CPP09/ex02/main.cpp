@@ -6,23 +6,11 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 18:42:25 by lopezz            #+#    #+#             */
-/*   Updated: 2024/09/10 21:05:37 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/09/11 00:22:11 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
-int stringToInt(const std::string& str) {
-    std::stringstream ss(str);
-    int num;
-    ss >> num;
-    if (ss.fail()) {
-        // Manejo de error si la conversión falla
-        std::cerr << "Error: La conversión de string a int falló." << std::endl;
-        return 0; // O cualquier valor por defecto o manejo de error
-    }
-    return num;
-}
 
 std::vector<int> createVec(int argc, char **argv)
 {
@@ -30,22 +18,58 @@ std::vector<int> createVec(int argc, char **argv)
 
 	for (int i = 1; i < argc; i++)
 	{
-		int n = stringToInt(argv[i]); //hacer conversion directamente sin otra funcion
-		//handle negative
-		auxVec.push_back(n);
+		std::stringstream ss(argv[i]);
+    	int num;
+    	ss >> num;
+    	if (num < 0 || ss.fail())
+			throw PMergeMe::inputErrorException();
+			
+		auxVec.push_back(num);
 	}
 	return auxVec;
+}
+
+void printVec(std::vector<int> vec)
+{
+	for (size_t i = 0; i < vec.size(); i++)
+		std::cout << vec[i] << " ";
+	std::cout << std::endl;
 }
 
 int main(int argc, char **argv)
 {
 	if (argc < 2)
-		std::cout << "Que coño haces" <<std::endl;
+	{
+		std::cout << "Invalid arguments" <<std::endl;
+		return 1;
+	}
 
-	std::vector<int> input = createVec(argc, argv);
-	PMergeMe a(input);
+	try {
+		std::vector<int> input = createVec(argc, argv);
 
-	a.vecAlgorithm();
+		std::cout << "Before: ";
+		printVec(input); 
+
+		PMergeMe a(input);
+		input = a.vecAlgorithm();
+		a.deqAlgorithm();
+
+		std::cout << std::endl << std::endl << "After: ";
+		printVec(input); 
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+		return 1;
+	}
 	
 	return 0;
 }
+
+//TODO
+////1. quitar swap, no me gusta, cambiarlo por un return o algo así
+//// 2. checkear necesidad if l.86
+////3. print sorted
+////4. hacer todo para deque
+////5. buen main y error handling
+//6. timestamps
+//7. operator= bien??

@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 18:43:50 by lopezz            #+#    #+#             */
-/*   Updated: 2024/09/10 21:06:35 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/09/11 00:18:08 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,26 @@ class PMergeMe
 	private:
 		std::vector<int> myVec;
 		std::deque<int> myDeq;
+
 	
 	public:
+		class inputErrorException : public std::exception {
+			const char *what() const throw() {
+				return "Error: bad input";
+			}
+		};
+		
 		PMergeMe(std::vector<int> input);
 		PMergeMe(const PMergeMe &copy);
 		PMergeMe &operator=(const PMergeMe &other);
 		~PMergeMe();
 
 		std::vector<int> &getVec();
-		void vecAlgorithm();
+		std::vector<int> vecAlgorithm();
+
+		std::deque<int> &getDeq();
+		void deqAlgorithm();
+		void printDeq(std::deque<int> deq);
 };
 
 #endif
