@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:07:51 by lopezz            #+#    #+#             */
-/*   Updated: 2024/09/06 17:44:56 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/09/10 20:18:04 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ class MutantStack : public std::stack< T, std::deque<T> >
 		{
 			*this = copy;
 		};
-		MutantStack &operator=(const MutantStack &assign)
-		{
-			//aaaaaaa
-			return *this;
-		};
+
+		MutantStack& operator=(const MutantStack &other)
+        {
+            std::stack<T>::operator=(other);
+            return *this;
+        };
 		
 		~MutantStack() {};
 

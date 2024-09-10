@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:41:35 by lopezz            #+#    #+#             */
-/*   Updated: 2024/09/07 12:52:39 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/09/07 13:21:50 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(int argc, char **argv)
 		std::cerr << "Invalid number of args" << std::endl;
 		return 1;
 	}
+
 	try {
 		RPN::exec(argv[1]);
 	}

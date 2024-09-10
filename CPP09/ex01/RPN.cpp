@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:42:20 by lopezz            #+#    #+#             */
-/*   Updated: 2024/09/07 13:14:20 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/09/07 20:28:54 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,5 @@ void RPN::exec(char *ecuation)
     if (myStack.size() == 1)
         std::cout << myStack.top() << std::endl;
     else
-        throw RPN::inputErrorException();
+		throw RPN::inputErrorException();
 }
