@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 18:43:50 by lopezz            #+#    #+#             */
-/*   Updated: 2024/09/11 00:18:08 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/09/12 16:46:30 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <exception>
 #include <vector>
 #include <deque>
+#include <sys/time.h>
 
 class PMergeMe 
 {
