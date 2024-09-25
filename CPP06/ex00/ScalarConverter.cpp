@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 15:25:47 by lopezz            #+#    #+#             */
-/*   Updated: 2024/07/23 13:22:53 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/09/24 17:54:53 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ static void writeNumber(int intCase, float floatCase, double doubleCase)
 		std::cout << "int: " << static_cast<int>(doubleCase) << std::endl;
 	else	
 		std::cout << "int: impossible" << std::endl;
-	
+
 	//Print float
 	float floatAux;
 	if (std::modf(floatCase, &floatAux) == 0.0f)
 		std::cout << "float: " << floatCase << ".0f" << std::endl;
 	else
 		std::cout << "float: " << floatCase << "f" << std::endl;
-		
+
 	//Print double
 	double doubleAux;
 	if (std::modf(doubleCase, &doubleAux) == 0.0)
