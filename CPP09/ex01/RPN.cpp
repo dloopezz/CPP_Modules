@@ -6,7 +6,7 @@
 /*   By: lopezz <lopezz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:42:20 by lopezz            #+#    #+#             */
-/*   Updated: 2024/09/07 20:28:54 by lopezz           ###   ########.fr       */
+/*   Updated: 2024/10/05 13:02:06 by lopezz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ std::stack<int> calc(std::stack<int> myStack, char sign)
 			myStack.push(num1 * num2);
 			break;
 		case '/':
+		    if (num2 == 0)
+                throw std::runtime_error("Error: Division by zero");
 			myStack.push(num1 / num2);
 			break;
 	}
